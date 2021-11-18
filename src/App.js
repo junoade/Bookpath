@@ -1,10 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Header";
+import Topbar from "./Topbar";
+import Main from "./Main";
 
 function App() {
   return (
-    <div className="App">
-    <h3>구글 로그인 </h3>
+    <div>
+      <Header />
+      <Topbar />
+      <Main />
     </div>
   );
 }
