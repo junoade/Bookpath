@@ -1,0 +1,14 @@
+.main {
+  display: flex;
+  justify-content: center;
+  height: 800px;
+}
+
+.element_box{
+  background-color: gray;
+}
+
+.updown{
+  border-right: 3px solid gray;
+  width: 0.1px;
+}
