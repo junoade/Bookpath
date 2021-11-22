@@ -62,13 +62,13 @@ yarn electron:serve
 - baseUrl+`/api/v1/rootDirs={value}`
 
   1~5개의 상위 디렉토리 정보를 요청하고 응답<br/>
-  {value} : int 타입 1~5 <br/> 
+  {value} : int 타입 1에서 5까지 <br/> 
   ![image](https://user-images.githubusercontent.com/54317409/142867947-f1029510-d871-47bc-958f-5244c3d8fd96.png)
 
 
 - baseUrl+`api/v1/getChildren={value}` 
   
   1~5개의 상위 디렉토리 정보를 기준으로 하위 디렉토리 또는 하위 링크들의 정보를 요청하고 응답<br/>
-  {value} : int 타입 0~4 <br/>
+  {value} : int 타입 0에서 4까지 <br/>
   ![image](https://user-images.githubusercontent.com/54317409/142868124-b9cfc175-673b-4aec-8d09-9b9d827595a0.png)
 
