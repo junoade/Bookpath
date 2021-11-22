@@ -50,7 +50,7 @@ yarn electron:serve
 
 #### 5. 일렉트론에서 리액트 실행시 `Topbar.js` 에서 
 
-   현재 baseUrl = "http://localhost:8080/api/v1/rootDirs=5" 로 HTTP GET 요청을 하게 된다.
+   현재 `baseUrl = "http://localhost:8080/api/v1/rootDirs=5"` 로 HTTP GET 요청을 하게 된다.
 
 ![image-20211122220114461](https://user-images.githubusercontent.com/54317409/142867098-b67e4db8-6177-4b87-a3b6-651317b1423f.png)
 
@@ -62,13 +62,13 @@ yarn electron:serve
 - baseUrl+`/api/v1/rootDirs={value}`
 
   1~5개의 상위 디렉토리 정보를 요청하고 응답<br/>
-  `{value}` : int 타입 1~5 <br/> 
+  {value} : int 타입 1~5 <br/> 
   ![image](https://user-images.githubusercontent.com/54317409/142867947-f1029510-d871-47bc-958f-5244c3d8fd96.png)
 
 
 - baseUrl+`api/v1/getChildren={value}` 
   
   1~5개의 상위 디렉토리 정보를 기준으로 하위 디렉토리 또는 하위 링크들의 정보를 요청하고 응답<br/>
-  `{value}`: int 타입 0~4 <br/>
+  {value} : int 타입 0~4 <br/>
   ![image](https://user-images.githubusercontent.com/54317409/142868124-b9cfc175-673b-4aec-8d09-9b9d827595a0.png)
 
