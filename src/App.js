@@ -1,6 +1,6 @@
-import Header from "./Header";
-import Topbar from "./Topbar";
-import Main from "./Main";
+import Header from "./components/Header";
+import Topbar from "./components/Topbar";
+import Main from "./components/Main";
 
 function App() {
   return (

@@ -1,71 +1,74 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 프론트엔드 백엔드 연동 개발 설명서
 
-## Available Scripts
 
-In the project directory, you can run:
+#### 1. 프론트 단의 리액트와 백엔드 단의 스프링부트에서 통신하기 위해서,
 
-### `yarn start`
+   해당 경로의 jar파일을 실행시켜 스프링부트의 WAS인 톰캣을 실행시켜야함.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> 해당 경로의 sampleData.json 파일 경로 주의할 것 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+#### 2. 자바 11버전을 설치하고 자바 버전이 제대로 터미널에 출력되는지 확인한다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+``` sh
+javac -version
+```
+![image-20211122215259433](https://user-images.githubusercontent.com/54317409/142867049-e51b1402-390d-4795-ae6b-688cdd302d76.png)
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### 3. 배포 파일 `bookpath-0.0.1-SNAPSHOT.jar` 을 다음의 명령어로 실행한다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```shell
+java -jar secureQR-0.0.1-SNAPSHOT.jar
+```
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### 4. Frontend경로의 작업 파일 경로 `Frontend\bookpath` 에서 다음의 명령어를 입력한다
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+yarn electron:serve
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 만약 별도의 의존성 문제가 발생한다면,
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  아래의 명령어를 실행하여 node_modules에 추가를 해봐도 괜찮을 것 같다.
 
-### Code Splitting
+  ```
+  yarn add electron concurrently wait-on cross-env
+  
+  yarn add @electron/remote
+  
+  npm install axios
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  
 
-### Analyzing the Bundle Size
+#### 5. 일렉트론에서 리액트 실행시 `Topbar.js` 에서 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   현재 `baseUrl = "http://localhost:8080/api/v1/rootDirs=5"` 로 HTTP GET 요청을 하게 된다.
 
-### Making a Progressive Web App
+![image-20211122220114461](https://user-images.githubusercontent.com/54317409/142867098-b67e4db8-6177-4b87-a3b6-651317b1423f.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+#### 6. 현재 구현한 백엔드 API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- baseUrl+`/api/v1/rootDirs={value}`
 
-### `yarn build` fails to minify
+  1~5개의 상위 디렉토리 정보를 요청하고 응답<br/>
+  {value} : int 타입 1에서 5까지 <br/> 
+  ![image](https://user-images.githubusercontent.com/54317409/142867947-f1029510-d871-47bc-958f-5244c3d8fd96.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Bookpath
+
+- baseUrl+`api/v1/getChildren={value}` 
+  
+  1~5개의 상위 디렉토리 정보를 기준으로 하위 디렉토리 또는 하위 링크들의 정보를 요청하고 응답<br/>
+  {value} : int 타입 0에서 4까지 <br/>
+  ![image](https://user-images.githubusercontent.com/54317409/142868124-b9cfc175-673b-4aec-8d09-9b9d827595a0.png)
+
