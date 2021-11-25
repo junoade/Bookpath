@@ -35,7 +35,8 @@ function Topbar() {
         <p className="header_name"></p>
       </div>
       <div className="top_bar">
-        <p><i className="arrow left"></i>
+        <h1>&#8592;</h1>
+        <div className ="folder-box">
         {
           rootDirs
             ? rootDirs.map((rootDir) => {
@@ -45,10 +46,12 @@ function Topbar() {
             })
             : null
         }
-        <i className="arrow right"></i></p>
+          </div>
+        <h1>&#8594;</h1>
       </div>
     </div>
   );
 }
+
 
 export default Topbar;

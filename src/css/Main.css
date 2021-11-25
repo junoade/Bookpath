@@ -1,14 +1,48 @@
 .main {
   display: flex;
   justify-content: center;
-  height: 800px;
+  height: 420px;
+  position: relative;
 }
 
-.element_box{
+a {
+  color: white;
+  font-size: 28px;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: center;
+}
+
+.main__left,
+.main__right {
+  width: 100%;
+  overflow: auto;
+}
+
+.main__left a,
+.main__right a{
+  display: block;
+  height: 40px;
+  width: 200px;
   background-color: gray;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.main__right a {
+  margin: 0;
 }
 
 .updown{
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 100%;
   border-right: 3px solid gray;
   width: 0.1px;
+}
+
+.content-box {
+  height: 100px;
+  width: 50px;
+  background-color: gray;
 }
