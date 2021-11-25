@@ -30,7 +30,7 @@ function Main() {
             ? childs["children"].map((child) => {
               return (
                 // 해당 링크를 누를 수 있게 return 
-                <a href={child.url}>{child.title}</a>
+                <a href={child.url} className="left_link">{child.title}</a>
               )
             })
             : null
@@ -41,7 +41,7 @@ function Main() {
       <div className="updown"></div>
 
       <div className="main__right">
-        <a href="">asdsad</a>
+        <a href="" >asdsad</a>
       </div>
     </div>
   );

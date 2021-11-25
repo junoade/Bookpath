@@ -42,7 +42,7 @@ function Topbar() {
             ? rootDirs.map((rootDir) => {
               return (
                 <div className ="folder-box">
-                <span>{rootDir.title}</span>
+                <span className="rootDir_">{rootDir.title}</span>
                 </div>
               )
             })

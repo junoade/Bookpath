@@ -58,3 +58,8 @@
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+/* 준호 */
+.rootDir_{
+  white-space: nowrap;
+  font-size : 20px
+}
