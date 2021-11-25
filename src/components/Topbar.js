@@ -21,7 +21,7 @@ function Topbar() {
   }, []);
 
   async function getRootsDir() {
-    await axios.get(baseUrl + "/api/v1/rootDirs=5").then((response => {
+    await axios.get(baseUrl + "/api/v1/rootDirs=3").then((response => {
       // 데이터 읽어왔을 때 응답 관련 데이터 상태 관리
       setRootMarks(response.data);
       console.log(response.data);
@@ -36,17 +36,19 @@ function Topbar() {
       </div>
       <div className="top_bar">
         <h1>&#8592;</h1>
-        <div className ="folder-box">
+        
         {
           rootDirs
             ? rootDirs.map((rootDir) => {
               return (
-                <span>{rootDir.title} </span>
+                <div className ="folder-box">
+                <span>{rootDir.title}</span>
+                </div>
               )
             })
             : null
         }
-          </div>
+          
         <h1>&#8594;</h1>
       </div>
     </div>
