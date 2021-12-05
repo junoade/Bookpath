@@ -33,10 +33,23 @@ function Topbar() {
   return (
     <div>
       <div className="header">
-        <p className="header_name"></p>
+        <img
+          className="backspace"
+          src="images/keyboard_backspace_white.png"
+          alt="backspace"
+        ></img>
+        <img
+          className="search"
+          src="images/search_white.png"
+          alt="search"
+        ></img>
+        <img className="more" src="images/more_vert_white.png" alt="more"></img>
       </div>
+
       <div className="top_bar">
-        <h1>&#8592;</h1>
+        <span>
+          <i class="arrow left"></i>
+        </span>
 
         {rootDirs
           ? rootDirs.map((rootDir) => {
@@ -48,7 +61,9 @@ function Topbar() {
             })
           : null}
 
-        <h1>&#8594;</h1>
+        <span>
+          <i class="arrow right"></i>
+        </span>
       </div>
     </div>
   );

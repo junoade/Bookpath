@@ -14,7 +14,6 @@ function Main() {
   }, []);
 
   // getChildsUrl();
-  console.log("length", childs.length);
 
   async function getChilds() {
     await axios
@@ -29,19 +28,6 @@ function Main() {
       }); // http 메소드 실패했을 때
   }
 
-  // async function getChildsUrl() {
-  //   await axios
-  //     .get("https://github.com/")
-  //     .then((response) => {
-  //       // 데이터 읽어왔을 때 응답 관련 데이터 상태 관리
-  //       setChildsUrl(response.data);
-  //       console.log("url", response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     }); // http 메소드 실패했을 때
-  // }
-
   // , "_blank", "noopener,noreferrer"
   const openInNewTab = (url) => {
     const newWindow = window.open(url);
@@ -51,7 +37,6 @@ function Main() {
   return (
     <div className="main">
       <div className="main__left">
-        {console.log("length", childs["children"].length)}
         {childs["children"] // 현재 json의 키값 구조 참고
           ? childs["children"].map((child) => {
               console.log("child", child);
@@ -63,7 +48,7 @@ function Main() {
                     // shell.openExternal(child.url);
                     // window.oprn(child.url);
                     openInNewTab(child.url);
-                    require("electron").shell.openExternal(child.url);
+                    // require("electron").shell.openExternal(child.url);
                   }}
                 >
                   <pre>

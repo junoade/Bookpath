@@ -1,7 +1,33 @@
 .header {
   background-color: #269cfc;
-  height: 50px;
+  height: 25px;
   padding: 2px;
+  position: relative;
+}
+
+.header img.backspace {
+  position: absolute;
+  left: 10px;
+}
+
+.header img.search {
+  position: absolute;
+  right: 50px;
+}
+
+.header img.more {
+  position: absolute;
+  right: 10px;
+}
+
+.header .top_bar img.back {
+  position: absolute;
+  right: 50px;
+}
+
+.header .top_bar img.forward {
+  position: absolute;
+  right: 10px;
 }
 
 .header_name {
@@ -14,10 +40,25 @@
 }
 
 .arrow {
+  position: absolute;
   border: solid black;
   border-width: 0 3px 3px 0;
   display: inline-block;
-  padding: 3px;
+  padding: 5px;
+}
+
+.left {
+  top: 143px;
+  left: 45px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.right {
+  top: 143px;
+  right: 45px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
 
 .folder-box {
