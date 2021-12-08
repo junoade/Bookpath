@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"; // useEffect : 앱이 처음 시작되었을 때 useState : 상태 관리 
-import "../css/Main.css"
+import React, { useState, useEffect } from "react"; // useEffect : 앱이 처음 시작되었을 때 useState : 상태 관리
+import "../css/Main.css";
 import axios from "axios"; // axios 라이브러리 이용해서 FE-BE http 통신
 
 function Main() {
@@ -7,41 +7,69 @@ function Main() {
 
   // 응답 데이터 관련
   const [childs, setChilds] = useState([]);
+ // const [childsURl, setChildsUrl] = useState([]);
 
   useEffect(() => {
     getChilds();
-  }, [])
+  }, []);
 
+  // getChildsUrl();
 
   async function getChilds() {
-    await axios.get(baseUrl + "/api/v1/getChildren=0").then((response => {
-      // 데이터 읽어왔을 때 응답 관련 데이터 상태 관리
-      setChilds(response.data);
-      console.log(response.data);
-    })).catch((error) => { console.log(error) }) // http 메소드 실패했을 때 
+    await axios
+      .get(baseUrl + "/api/v1/getChildren=0")
+      .then((response) => {
+        // 데이터 읽어왔을 때 응답 관련 데이터 상태 관리
+        setChilds(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      }); // http 메소드 실패했을 때
   }
+
+  // , "_blank", "noopener,noreferrer"
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url);
+    if (newWindow) newWindow.opener = null;
+  };
 
   return (
     <div className="main">
       <div className="main__left">
-        {
-
-          childs["children"] // 현재 json의 키값 구조 참고 
-            ? childs["children"].map((child) => {
+        {childs["children"] // 현재 json의 키값 구조 참고
+          ? childs["children"].map((child) => {
+              console.log("child", child);
               return (
-                // 해당 링크를 누를 수 있게 return 
-                <a href={child.url} className="left_link">{child.title}</a>
-              )
+                // 해당 링크를 누를 수 있게 return
+                <div
+                  className="content-box"
+                  onClick={() => {
+                    // shell.openExternal(child.url);
+                    // window.oprn(child.url);
+                    openInNewTab(child.url);
+                    // require("electron").shell.openExternal(child.url);
+                  }}
+                >
+                  <pre>
+                    <span>{child.title}</span>
+                  </pre>
+                  <pre>
+                    <span>{child.url}</span>
+                  </pre>
+                  <pre>
+                    <span></span>
+                  </pre>
+                </div>
+              );
             })
-            : null
-
-        }
+          : null}
       </div>
 
       <div className="updown"></div>
 
       <div className="main__right">
-        <a href="" >asdsad</a>
+        <div className="content-box">exexexex</div>
       </div>
     </div>
   );

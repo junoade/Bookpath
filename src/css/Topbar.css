@@ -1,28 +1,68 @@
 .header {
-  background-color: #269CFC;
-  height: 50px;
+  background-color: #269cfc;
+  height: 25px;
   padding: 2px;
+  position: relative;
 }
 
-.header_name{
+.header img.backspace {
+  position: absolute;
+  left: 10px;
+}
+
+.header img.search {
+  position: absolute;
+  right: 50px;
+}
+
+.header img.more {
+  position: absolute;
+  right: 10px;
+}
+
+.header .top_bar img.back {
+  position: absolute;
+  right: 50px;
+}
+
+.header .top_bar img.forward {
+  position: absolute;
+  right: 10px;
+}
+
+.header_name {
   color: white;
 }
 
-.top_bar{
+.top_bar {
   display: flex;
   justify-content: center;
 }
 
-
 .arrow {
+  position: absolute;
   border: solid black;
   border-width: 0 3px 3px 0;
   display: inline-block;
-  padding: 3px;
+  padding: 5px;
+}
+
+.left {
+  top: 143px;
+  left: 45px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.right {
+  top: 143px;
+  right: 45px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
 
 .folder-box {
-  margin: 10px 0px;
+  margin: 10px 10px;
   padding: 10px;
   height: 50px;
   width: 150px;
@@ -30,36 +70,17 @@
   font-weight: 400;
   box-sizing: border-box;
   display: block;
-  background-color: #5395FF;
-  border: 3px solid #5395FF;
+  background-color: #5395ff;
+  border: 3px solid #5395ff;
   border-radius: 5px;
   color: white;
   text-align: center;
   overflow: hidden;
-  text-overflow: ellipsis
+  text-overflow: ellipsis;
 }
 
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-
-.up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-}
-
-.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
 /* 준호 */
-.rootDir_{
+.rootDir_ {
   white-space: nowrap;
-  font-size : 20px
+  font-size: 20px;
 }
