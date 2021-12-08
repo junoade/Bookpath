@@ -7,7 +7,7 @@ function Main() {
 
   // 응답 데이터 관련
   const [childs, setChilds] = useState([]);
-  // const [childsURl, setChildsUrl] = useState([]);
+ // const [childsURl, setChildsUrl] = useState([]);
 
   useEffect(() => {
     getChilds();
